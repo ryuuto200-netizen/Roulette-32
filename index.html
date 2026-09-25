@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09101f">
+  <meta name="description" content="1から32までの数字を、回転するホイールでランダムにひとつ選ぶツール。">
+  <title>ORBIT 32 — 数字をひとつ選ぶ</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="ORBIT 32 ホーム">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="brand-copy"><strong>ORBIT <b>32</b></strong><small>NUMBER PICKER</small></span>
+    </a>
+    <div class="header-note"><span class="header-dot" aria-hidden="true"></span>1 — 32 <span class="header-divider">/</span> 32 numbers</div>
+  </header>
+
+  <main class="page">
+    <section class="intro" aria-labelledby="page-title">
+      <div class="eyebrow"><span class="eyebrow-line"></span> RANDOM NUMBER PICKER <span class="eyebrow-index">NO. 032</span></div>
+      <div class="intro-row">
+        <div>
+          <h1 id="page-title">次の数字は、<br><span>どれにする？</span></h1>
+          <p class="intro-copy">ホイールを回して、1から32までの数字をひとつ選びます。</p>
+        </div>
+        <div class="equal-badge" aria-label="すべての数字は同じ確率です">
+          <span class="equal-badge-icon" aria-hidden="true">＝</span>
+          <span><strong>すべて同じ確率</strong><small>1 / 32 の抽選</small></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="数字選択ホイール">
+      <section class="wheel-panel panel">
+        <div class="panel-topline">
+          <div><span class="section-kicker">THE NUMBER ORBIT</span><h2>32の数字から選ぶ</h2></div>
+          <div class="spin-status" id="spinStatus"><span class="status-light" aria-hidden="true"></span><span id="statusText">READY</span></div>
+        </div>
+
+        <div class="wheel-stage" id="wheelStage">
+          <div class="wheel-aura" aria-hidden="true"></div>
+          <div class="wheel-frame">
+            <svg class="wheel-svg" id="wheelSvg" viewBox="0 0 480 480" role="img" aria-label="1から32までの数字が等しい大きさで並んだホイール"><g id="wheelFace"></g></svg>
+          </div>
+          <div class="wheel-pointer" aria-hidden="true"><span></span></div>
+          <div class="wheel-hub" aria-hidden="true"><span class="hub-orbit"><i></i></span><strong>32</strong><small>NUMBERS</small></div>
+        </div>
+
+        <div class="wheel-caption"><span class="caption-line" aria-hidden="true"></span><p>上のマーカーで、選ばれた数字をお知らせします</p></div>
+      </section>
+
+      <section class="control-panel panel" aria-label="抽選の操作と結果">
+        <div class="control-heading"><span class="section-kicker">YOUR PICK</span><span class="round-label"><span></span> 1 ROUND</span></div>
+        <div class="result-card" id="resultCard">
+          <div class="result-top"><span class="result-label">今回の数字</span><span class="result-star" aria-hidden="true">✳</span></div>
+          <div class="result-number" id="resultNumber" aria-live="polite" aria-atomic="true">—</div>
+          <p class="result-caption" id="resultCaption">スタートを押して、ホイールを回してください</p>
+        </div>
+
+        <button class="action-button" id="spinButton" type="button" aria-pressed="false">
+          <span class="action-symbol" id="actionSymbol" aria-hidden="true">▶</span>
+          <span class="action-label" id="actionLabel">スタート</span>
+          <span class="action-shortcut" id="actionHint">SPIN</span>
+        </button>
+
+        <div class="control-note"><span class="note-icon" aria-hidden="true">↗</span><p>回転中にボタンを押すと、ホイールがゆっくり止まります。</p></div>
+        <div class="history">
+          <div class="history-heading"><span>直近の結果</span><span class="history-count" id="historyCount">0 / 4</span></div>
+          <div class="history-list" id="historyList" aria-label="直近4回の結果"><span class="history-empty">選ばれた数字がここに並びます</span></div>
+        </div>
+      </section>
+    </section>
+
+    <section class="info-strip" aria-label="抽選について">
+      <div class="info-item"><span class="info-icon info-icon-grid" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span><strong>32個の選択肢</strong><small>1から32まで、すべて同じ大きさ</small></span></div>
+      <div class="info-separator" aria-hidden="true"></div>
+      <div class="info-item"><span class="info-icon info-icon-repeat" aria-hidden="true">↻</span><span><strong>毎回、独立して抽選</strong><small>同じ数字が続けて選ばれることもあります</small></span></div>
+      <div class="info-probability"><strong>3.125%</strong><small>each number</small></div>
+    </section>
+
+    <footer class="site-footer"><span>ORBIT 32 <i>·</i> RANDOM PICKER</span><span>小さな決定に、ちょうどいい回転を。</span></footer>
+  </main>
+</body>
+</html>
